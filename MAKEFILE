@@ -1,0 +1,10 @@
+VAL=foo
+
+run: build
+    docker run --rm save-secret-action $(VAL)
+
+build:
+    docker build --tag save-secret-action .
+
+test:
+    ./entrypoint.sh $(VAL)
